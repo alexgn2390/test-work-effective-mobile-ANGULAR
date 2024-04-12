@@ -1,0 +1,165 @@
+@import "../../assets/styles/variables";
+@import "../../assets/styles/mixins";
+
+.task-list {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  .container {
+    .task-list-wrapper {
+      @include head-lora-36;
+      color: $green-text-color;
+      margin-bottom: 40px;
+
+      .task-list-title {
+        @include head-lora-36;
+        color: $green-text-color;
+      }
+
+      .button {
+        border: none;
+        border-radius: 10px;
+        background: cornflowerblue;
+        padding: 10px;
+        color: #FFFFFF;
+        cursor: pointer;
+      }
+    }
+
+    .task-list-head {
+      display: flex;
+      justify-content: flex-end;
+      align-items: baseline;
+      margin-left: 317px;
+      margin-bottom: 38px;
+
+      .tree-node {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .task-list-sorting {
+        width: 174px;
+        min-width: 190px;
+        box-sizing: border-box;
+        position: relative;
+        font-size: 16px;
+        cursor: pointer;
+
+
+        .task-list-sorting-head {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          padding: 12px 0 12px 23px;
+          color: $gray-text-color;
+        }
+
+        .task-list-sorting-body {
+          position: absolute;
+          box-sizing: border-box;
+          width: 100%;
+          z-index: 3;
+          display: none;
+          padding: 12px 23px;
+          background: #F5F5F5;
+          border-radius: 0 0 5px 5px;
+          color: #8E8E8E;
+
+          .task-list-sorting-item {
+            margin-bottom: 14px;
+            cursor: pointer;
+
+            &:hover {
+              color: lightgray;
+            }
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            &.active {
+              color: #313131;
+            }
+          }
+        }
+
+        &.open {
+          width: 257px;
+          min-width: 257px;
+
+          .task-list-sorting-head {
+            color: #000000;
+            background: #EBEBEB;
+            border-radius: 5px 5px 0 0;
+            padding-right: 23px;
+          }
+
+          .task-list-sorting-body {
+            display: block;
+          }
+        }
+
+        span {
+          margin-right: 8px;
+        }
+      }
+    }
+
+
+    .task-layout {
+      margin-top: 10px;
+      display: flex;
+
+      .task-filters {
+        width: 257px;
+        min-width: 187px;
+        margin-right: 25px;
+      }
+
+      .task-list-scroll {
+
+        .table-title {
+
+          table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+
+            th, td {
+              border: 1px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+            }
+          }
+        }
+
+        .table-body {
+          table {
+            width: 100%;
+            border-spacing: 0;
+
+            .table-body-tr {
+              cursor: pointer;
+              &:hover {
+                background: lightgray;
+              }
+            }
+
+            th, td {
+              border: 1px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+

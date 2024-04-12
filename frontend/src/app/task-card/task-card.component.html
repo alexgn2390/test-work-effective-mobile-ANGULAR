@@ -1,0 +1,51 @@
+
+<mat-dialog-content class="task-card">
+  <form [formGroup]="taskForm">
+    <div class="task-card-input">
+      <input type="text" placeholder="Название" formControlName="title">
+    </div>
+    <div class="task-card-item">
+      <span>Исполнитель</span>
+      <select class="task-card-item-select" [(ngModel)]="selectedAssignees" formControlName="assignee">
+        <option value="">Выберите исполнителя</option>
+        <option *ngFor="let assignee of assignees" [value]="assignee.name">{{ assignee.name }}</option>
+      </select>
+    </div>
+
+    <div class="task-card-item">
+      <span>Дедлайн</span>
+      <input class="task-card-item-date" type="date" formControlName="deadline">
+    </div>
+    <div class="task-card-item">
+      <span>Проекты</span>
+      <select class="task-card-item-select" formControlName="projects">
+        <option value="">Выберите проект</option>
+        <option *ngFor="let project of projects" [value]="project.name" >{{ project.name }}</option>
+      </select>
+    </div>
+    <div class="task-card-item">
+      <span>Приоритет</span>
+      <select  class="task-card-item-select" [(ngModel)]="selectedPriority" formControlName="priority">
+        <option value="">Выберите приоритет</option>
+        <option *ngFor="let priority of priorities" [value]="priority.name" >{{ priority.name }}</option>
+      </select>
+    </div>
+    <div class="task-card-item">
+      <span>Статус</span>
+      <select  class="task-card-item-select" [(ngModel)]="selectedStatus" formControlName="status">
+        <option value="">Выберите статус</option>
+        <option *ngFor="let status of status" [value]="status.name" >{{ status.name }}</option>
+      </select>
+    </div>
+
+    <div class="task-card-description">
+      <div>Описание</div>
+      <input type="text" formControlName="description">
+    </div>
+  </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button class="button button-cancel" (click)="onCancelClick()">Отмена</button>
+  <button class="button button-save" (click)="createNewTask()">Сохранить</button>
+</mat-dialog-actions>
